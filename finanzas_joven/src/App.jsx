@@ -1,24 +1,49 @@
+// src/App.jsx
 import React from "react";
+
+// COMPONENTES
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import KPISection from "./components/KPISection";
-import ResourcesSection from "./components/ResourcesSection";
-import AboutMe from "./components/AboutMe";
+import KpiCards from "./components/KpiCards";
+import Resources from "./components/Resources";
+import SalesTable from "./components/SalesTable";
+import Story from "./components/Story";
 import CTA from "./components/CTA";
 import NewsletterForm from "./components/NewsletterForm";
 
 function App() {
   return (
-    <div className="App flex">
+    <div className="App">
+      {/* MENÚ LATERAL */}
       <Navbar />
-      <main className="flex-1 p-4">
+
+      {/* CONTENIDO PRINCIPAL */}
+      <main className="main">
+        {/* HERO */}
         <Hero />
-        <KPISection />
-        <ResourcesSection />
-        <AboutMe />
+
+        {/* KPIs */}
+        <KpiCards />
+
+        {/* RECURSOS */}
+        <Resources />
+
+        {/* TABLA DE VENTAS */}
+        <SalesTable />
+
+        {/* HISTORIA PERSONAL */}
+        <Story />
+
+        {/* CTA FINAL */}
         <CTA />
+
+        {/* NEWSLETTER */}
         <NewsletterForm />
       </main>
+
+      {/* FOOTER */}
+      <Footer />
     </div>
   );
 }

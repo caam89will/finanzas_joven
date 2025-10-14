@@ -1,19 +1,29 @@
-// src/components/ResourceCard.jsx
+// src/components/Resources.jsx
 import React from "react";
+import { resources } from "../data/resources"; // <- Datos dinámicos
 
-function ResourceCard({ title, description, linkText, linkHref, secondaryLink, secondaryHref }) {
+const Resources = () => {
   return (
-    <article className="content-card card p-4 bg-white rounded shadow">
-      <div className="card-head mb-2">
-        <h3 className="card-title font-bold">{title}</h3>
+    <section aria-labelledby="recursos">
+      <div className="section-head">
+        <h2 id="recursos">Guías y recursos</h2>
+        <div className="sub">Recursos seleccionados para comenzar hoy</div>
       </div>
-      <p className="text-gray-600 mb-2">{description}</p>
-      <div className="flex gap-2">
-        {linkText && <a href={linkHref} className="btn btn-primary py-1 px-3 bg-purple-700 text-white rounded">{linkText}</a>}
-        {secondaryLink && <a href={secondaryHref} className="btn btn-secondary py-1 px-3 border rounded">{secondaryLink}</a>}
-      </div>
-    </article>
-  );
-}
 
-export default ResourceCard;
+      <div className="grid cols-3">
+        {resources.map((item) => (
+          <article key={item.id} className="content-card card" aria-labelledby={`r${item.id}`}>
+            <div className="card-head"><h3 id={`r${item.id}`} className="card-title">{item.title}</h3></div>
+            <p className="muted">{item.description}</p>
+            <div style={{ marginTop: ".75rem", display: "flex", gap: ".5rem" }}>
+              {item.readLink && <a className="btn btn--ghost" href={item.readLink}>Leer</a>}
+              {item.downloadLink && <a className="btn btn--primary" href={item.downloadLink} target="_blank" rel="noopener noreferrer">Descargar guía</a>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Resources;

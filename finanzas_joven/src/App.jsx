@@ -14,32 +14,44 @@ import NewsletterForm from "./components/NewsletterForm";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex min-h-screen bg-gray-50 text-gray-800">
       {/* MENÚ LATERAL */}
       <Navbar />
 
       {/* CONTENIDO PRINCIPAL */}
-      <main className="main">
+      <main className="flex-1 overflow-auto p-6">
         {/* HERO */}
         <Hero />
 
         {/* KPIs */}
-        <KpiCards />
+        <section className="mt-12">
+          <KpiCards />
+        </section>
 
         {/* RECURSOS */}
-        <Resources />
+        <section className="mt-12">
+          <Resources />
+        </section>
 
         {/* TABLA DE VENTAS */}
-        <SalesTable />
+        <section className="mt-12 overflow-x-auto">
+          <SalesTable />
+        </section>
 
         {/* HISTORIA PERSONAL */}
-        <Story />
+        <section className="mt-12">
+          <Story />
+        </section>
 
         {/* CTA FINAL */}
-        <CTA />
+        <section className="mt-12">
+          <CTA />
+        </section>
 
         {/* NEWSLETTER */}
-        <NewsletterForm />
+        <section className="mt-12">
+          <NewsletterForm />
+        </section>
       </main>
 
       {/* FOOTER */}

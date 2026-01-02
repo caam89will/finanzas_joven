@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "5 Errores Comunes al Empezar a Invertir",
+    "excerpt": "Descubre por qué la mayoría de los jóvenes pierden dinero en su primer año y cómo evitarlo con una estrategia simple.",
+    "image": "https://placehold.co/600x400/4f46e5/ffffff?text=Inversión",
+    "tag": "Inversión",
+    "tagColor": "blue",
+    "date": "Hace 2 días",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "El Método 50/30/20 Explicado",
+    "excerpt": "La regla de oro para organizar tus finanzas personales sin dejar de disfrutar tu vida social los fines de semana.",
+    "image": "https://placehold.co/600x400/10b981/ffffff?text=Ahorro",
+    "tag": "Ahorro",
+    "tagColor": "green",
+    "date": "Hace 5 días",
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "Genera Ingresos Pasivos desde Casa",
+    "excerpt": "Ideas realistas para generar un flujo de efectivo extra utilizando herramientas digitales y marketing de afiliados.",
+    "image": "https://placehold.co/600x400/f59e0b/ffffff?text=Ingresos",
+    "tag": "Ingresos",
+    "tagColor": "yellow",
+    "date": "Hace 1 semana",
+    "link": "#"
+  }
+]

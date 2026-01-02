@@ -6,11 +6,12 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import KpiCards from "./components/KpiCards";
-import Resources from "./components/Resources";
 import SalesTable from "./components/SalesTable";
 import Story from "./components/Story";
 import CTA from "./components/CTA";
 import NewsletterForm from "./components/NewsletterForm";
+import BlogCard from "./components/BlogCard";
+import blogPosts from "./data/blogPosts.json";
 
 function App() {
   return (
@@ -28,9 +29,15 @@ function App() {
           <KpiCards />
         </section>
 
-        {/* RECURSOS */}
-        <section className="mt-12">
-          <Resources />
+        {/* BLOG / RECURSOS (Diseño Profesional) */}
+        <section className="blog-section mt-12">
+          <h2 className="section-title">Últimos Artículos y Recursos</h2>
+          
+          <div className="blog-grid">
+            {blogPosts.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
         </section>
 
         {/* TABLA DE VENTAS */}

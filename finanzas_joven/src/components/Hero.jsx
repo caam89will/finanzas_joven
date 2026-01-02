@@ -10,21 +10,29 @@ import portada from "../assets/portada.png";
 
 function Hero() {
   return (
-    <section className="p-8 flex flex-col md:flex-row items-center gap-6 bg-purple-100">
+    <section className="dashboard-hero">
       <div className="flex-1">
-        <h2 className="text-3xl font-bold mb-2">
-          Aprende a ganar dinero por internet
-          <span className="block text-lg font-semibold text-gray-700">sin invertir y paso a paso</span>
+        {/* SEO: Palabras clave de alta intención de compra */}
+        <h2>
+          Maximiza tu Rentabilidad:
+          <span className="block text-xl font-medium text-indigo-200 mt-2">Estrategias de Inversión y Activos Digitales</span>
         </h2>
-        <p className="text-gray-600 mb-4">Guía creada por una madre emprendedora que utiliza herramientas gratuitas e inteligencia artificial para generar ingresos desde casa.</p>
-        <div className="flex gap-2 flex-wrap">
-          <a className="bg-purple-700 text-white px-4 py-2 rounded" href="https://go.hotmart.com/C99765159A" target="_blank" rel="noopener noreferrer">Consigue tu Guía</a>
-          <a className="bg-gray-200 text-gray-700 px-4 py-2 rounded" href="#apps">Ver herramientas gratuitas</a>
+        
+        <p className="text-gray-300 mb-6 text-lg max-w-2xl">
+          Accede a herramientas premium y cursos validados para construir tu portafolio de ingresos pasivos. Deja de ahorrar y empieza a invertir hoy mismo.
+        </p>
+        
+        <div className="flex gap-4 flex-wrap">
+          <a className="cta-button shadow-lg shadow-indigo-500/30" href="https://go.hotmart.com/C99765159A" target="_blank" rel="noopener noreferrer">
+            🚀 Obtener Guía Premium
+          </a>
+          <a className="px-6 py-3 rounded-lg border border-gray-500 text-white hover:bg-white/10 transition-colors font-medium" href="#apps">
+            Explorar Herramientas
+          </a>
         </div>
       </div>
       <div className="flex-1">
-        <img src={portada} alt="Portada: Guía para ganar dinero desde casa" className="rounded border border-gray-300" />
-        <figcaption className="text-sm text-gray-500 mt-1">Ejemplos prácticos y pasos accionables.</figcaption>
+        <img src={portada} alt="Guía de Inversión y Finanzas Personales" className="rounded-xl shadow-2xl border border-gray-700 transform hover:scale-105 transition-transform duration-300" />
       </div>
     </section>
   );

@@ -10,12 +10,14 @@ import { kpis } from "../data/kpis"; // <- Aquí importas tus datos
 
 const KpiCards = () => {
   return (
-    <section className="kpi" aria-label="Indicadores principales">
+    <section className="kpi-grid" aria-label="Indicadores Financieros">
       {kpis.map((item) => (
-        <div key={item.label} className="tile card">
-          <div className="label">{item.label}</div>
-          <div className="value">{item.value}</div>
-          <div className={`delta ${item.trend}`}>{item.delta}</div>
+        <div key={item.label} className="stat-card">
+          <div className="stat-label">{item.label}</div>
+          <div className="stat-value">{item.value}</div>
+          <div className={`stat-delta ${item.trend === 'up' ? 'positive' : 'negative'}`}>
+            {item.trend === 'up' ? '▲' : '▼'} {item.delta}
+          </div>
         </div>
       ))}
     </section>

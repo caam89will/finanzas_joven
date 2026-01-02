@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: FOOTER (PIE DE PÁGINA)
+ * ----------------------------------
+ * Contiene enlaces legales, navegación secundaria y redes sociales.
+ * Se muestra al final de la vista del Dashboard.
+ */
 import { useEffect, useState } from "react";
 
 export default function Footer() {

@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: NAVBAR (BARRA DE NAVEGACIÓN LATERAL)
+ * ------------------------------------------------
+ * Menú lateral fijo que permite la navegación entre las diferentes secciones del Dashboard.
+ * También incluye un widget promocional para la guía principal.
+ */
 // src/components/Navbar.jsx
 import React from "react";
 

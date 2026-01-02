@@ -1,3 +1,11 @@
+/**
+ * COMPONENTE PRINCIPAL: APP
+ * -------------------------
+ * Actúa como el contenedor y enrutador principal de la aplicación.
+ * Gestiona el estado 'showFunnel' para alternar entre:
+ * 1. La vista del Dashboard (con Navbar, Hero, Blog, etc.)
+ * 2. La vista del Embudo de Ventas (SalesFunnel) a pantalla completa.
+ */
 // src/App.jsx
 import React, { useState } from "react";
 

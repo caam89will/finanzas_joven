@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: FORMULARIO DE NEWSLETTER
+ * ------------------------------------
+ * Gestiona la captura de correos electrónicos para suscripciones.
+ * Maneja el estado local del input y simula el envío de datos.
+ */
 import { useState } from "react";
 
 export default function NewsletterForm() {

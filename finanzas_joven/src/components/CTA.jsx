@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: CALL TO ACTION (LLAMADA A LA ACCIÓN)
+ * ------------------------------------------------
+ * Un bloque destacado diseñado para dirigir al usuario a realizar una acción específica,
+ * como descargar una guía o suscribirse, utilizando botones de alto contraste.
+ */
 // src/components/CTA.jsx
 import React from "react";
 

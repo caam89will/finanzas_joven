@@ -1,3 +1,10 @@
+/**
+ * COMPONENTE: SALES FUNNEL (EMBUDO DE VENTAS)
+ * -------------------------------------------
+ * Este componente representa la Landing Page completa para la venta de productos digitales.
+ * Funciona de manera independiente al layout principal (Dashboard) para evitar distracciones.
+ * Incluye secciones de: Hero, Beneficios, Prueba Social, Precios y Garantía.
+ */
 import React from "react";
 import "../App.css"; // Aseguramos que cargue los estilos del funnel
 

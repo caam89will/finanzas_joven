@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: TARJETAS KPI (INDICADORES CLAVE)
+ * --------------------------------------------
+ * Muestra métricas importantes (como ingresos, visitas, conversiones) en tarjetas
+ * resumidas. Itera sobre un array de datos para generar las tarjetas automáticamente.
+ */
 // src/components/KpiCards.jsx
 import React from "react";
 import { kpis } from "../data/kpis"; // <- Aquí importas tus datos

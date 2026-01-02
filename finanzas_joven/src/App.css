@@ -1,3 +1,11 @@
+/*
+  ARCHIVO DE ESTILOS PRINCIPAL DE LA APLICACIÓN
+  ---------------------------------------------
+  Este archivo contiene:
+  1. Estilos globales para el layout.
+  2. Clases específicas para el Embudo de Ventas (Sales Funnel) como .hero-section, .pricing-section.
+  3. Estilos para las tarjetas del blog y elementos de UI compartidos.
+*/
 #root {
   width: 100%;
   margin: 0;

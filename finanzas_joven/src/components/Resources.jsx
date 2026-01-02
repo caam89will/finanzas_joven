@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: RECURSOS
+ * --------------------
+ * Muestra una cuadrícula de recursos descargables o enlaces de interés.
+ * Útil para ofrecer lead magnets o material complementario.
+ */
 // src/components/Resources.jsx
 import React from "react";
 import { resources } from "../data/resources"; // <- Datos dinámicos

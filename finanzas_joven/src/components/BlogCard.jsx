@@ -1,3 +1,10 @@
+/**
+ * COMPONENTE: BLOG CARD
+ * ---------------------
+ * Componente reutilizable que renderiza una tarjeta individual para un artículo del blog.
+ * Recibe un objeto 'post' como prop y maneja la visualización de la imagen,
+ * título, resumen y etiquetas de categoría con colores dinámicos.
+ */
 import React from "react";
 
 const BlogCard = ({ post }) => {

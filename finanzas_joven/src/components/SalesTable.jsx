@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: TABLA DE VENTAS
+ * ---------------------------
+ * Visualiza un listado de transacciones o ventas recientes en formato tabular.
+ * Importa los datos dinámicamente desde un archivo externo.
+ */
 // src/components/SalesTable.jsx
 import React from "react";
 import { sales } from "../data/sales"; // <- Datos dinámicos

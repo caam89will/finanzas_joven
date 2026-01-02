@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: HISTORIA (SOBRE MÍ)
+ * -------------------------------
+ * Sección narrativa para conectar con la audiencia contando la historia personal
+ * o la misión detrás del proyecto "Finanzas Joven".
+ */
 // src/components/AboutMe.jsx
 import React from "react";
 

@@ -1,3 +1,9 @@
+/**
+ * COMPONENTE: HERO (SECCIÓN PRINCIPAL)
+ * ------------------------------------
+ * Es la primera sección que ve el usuario en el Dashboard.
+ * Contiene el mensaje de bienvenida principal, una imagen destacada y botones de acción rápida.
+ */
 // src/components/Hero.jsx
 import React from "react";
 import portada from "../assets/portada.png";

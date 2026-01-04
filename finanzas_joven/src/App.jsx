@@ -1,97 +1,140 @@
 /**
- * COMPONENTE PRINCIPAL: APP
- * -------------------------
- * Actúa como el contenedor y enrutador principal de la aplicación.
- * Gestiona el estado 'showFunnel' para alternar entre:
- * 1. La vista del Dashboard (con Navbar, Hero, Blog, etc.)
- * 2. La vista del Embudo de Ventas (SalesFunnel) a pantalla completa.
+ * COMPONENTE PRINCIPAL (LAYOUT)
+ * -----------------------------
+ * Este componente actúa como el "esqueleto" de la aplicación.
+ * Contiene:
+ * 1. La barra lateral (Sidebar) fija.
+ * 2. El encabezado (Header) fijo.
+ * 3. El área de contenido dinámico (<Routes>) que cambia según la página.
+ * 4. El pie de página (Footer) común.
  */
-// src/App.jsx
-import React, { useState } from "react";
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import './index.css';
 
-// COMPONENTES
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import KpiCards from "./components/KpiCards";
-import SalesTable from "./components/SalesTable";
-import Story from "./components/Story";
-import CTA from "./components/CTA";
-import NewsletterForm from "./components/NewsletterForm";
-import BlogCard from "./components/BlogCard";
-import SalesFunnel from "./components/SalesFunnel"; // Importamos el nuevo componente
-import blogPosts from "./data/blogPosts.json";
+// Importación de las páginas individuales
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import Ahorro from './pages/Ahorro';
+import Apps from './pages/App'; // Nota: El archivo se llama App.jsx en la carpeta pages
+import Contacto from './pages/Contacto';
 
 function App() {
-  // Estado para controlar qué vista mostrar (Dashboard o Funnel)
-  const [showFunnel, setShowFunnel] = useState(false);
+  // Estado para el año actual en el footer
+  const [year, setYear] = useState(new Date().getFullYear());
+  
+  // Hook para saber en qué ruta estamos y resaltar el menú
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path ? 'active' : '';
 
-  // Si el estado es true, mostramos SOLO el embudo de ventas
-  if (showFunnel) {
-    return <SalesFunnel onBack={() => setShowFunnel(false)} />;
-  }
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   return (
-    <div className="App flex min-h-screen bg-gray-50 text-gray-800">
-      {/* MENÚ LATERAL */}
-      <Navbar />
-
-      {/* CONTENIDO PRINCIPAL */}
-      <main className="flex-1 overflow-auto p-6">
-        
-        {/* --- ENLACE AL EMBUDO DE VENTAS --- */}
-        <div className="bg-indigo-900 text-white p-6 rounded-xl mb-8 flex justify-between items-center shadow-lg">
-          <div>
-            <h3 className="text-xl font-bold">🚀 Modo Ventas Activado</h3>
-            <p className="text-indigo-200">Visualiza la Landing Page optimizada para Hotmart/Clickbank.</p>
-          </div>
-          <button onClick={() => setShowFunnel(true)} className="cta-button border-2 border-white hover:bg-white hover:text-indigo-900">
-            Ver Página de Ventas
-          </button>
+    <div className="shell" role="application">
+      {/* SIDEBAR */}
+      <aside className="sidebar" aria-label="Navegación principal">
+        <div className="brand" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect width="24" height="24" rx="6" fill="#4b74ff"></rect>
+          </svg>
+          <span>Finanzas Jóvenes</span>
         </div>
 
-        {/* HERO */}
-        <Hero />
+        <nav className="nav" aria-label="Menú principal">
+          {/* Usamos Link en lugar de <a> para navegación SPA (sin recarga) */}
+          <Link to="/" className={isActive('/')}>Inicio</Link>
+          <Link to="/blog" className={isActive('/blog')}>Blog</Link>
+          <Link to="/ahorro" className={isActive('/ahorro')}>Ahorro</Link>
+          <Link to="/apps" className={isActive('/apps')}>Apps</Link>
+          <Link to="/contacto" className={isActive('/contacto')}>Contacto</Link>
+        </nav>
 
-        {/* KPIs */}
-        <section className="mt-12">
-          <KpiCards />
-        </section>
+        <hr style={{ margin: '1rem 0', borderColor: 'var(--border)' }} />
 
-        {/* BLOG / RECURSOS (Diseño Profesional) */}
-        <section className="blog-section mt-12">
-          <h2 className="section-title">Últimos Artículos y Recursos</h2>
-          
-          <div className="blog-grid">
-            {blogPosts.map((post) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
+        <div className="card" style={{ marginTop: '1rem' }}>
+          <div className="card-head"><div className="card-title">Guía recomendada</div></div>
+          <p className="muted" style={{ fontSize: '.95rem' }}>Descarga mi guía paso a paso para comenzar hoy mismo.</p>
+          <a className="btn btn--primary" href="https://go.hotmart.com/C99765159A" rel="noopener noreferrer" target="_blank">Descargar guía</a>
+        </div>
+      </aside>
+
+      {/* MAIN */}
+      <main className="main" id="mainContent" tabIndex="-1">
+        {/* HEADER */}
+        <header className="header" role="banner">
+          <div className="header-inner container">
+            <div style={{ display: 'flex', gap: '.75rem', alignItems: 'center' }}>
+              <button className="btn btn--ghost" aria-label="Abrir menú">☰</button>
+              <div>
+                <h1 style={{ fontSize: '1.05rem', margin: 0 }}>💰 Gana Dinero por Internet</h1>
+                <div className="muted" style={{ fontSize: '.85rem' }}>Estrategias para emprender desde casa</div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '.75rem', alignItems: 'center', width: '100%', maxWidth: '640px' }}>
+              <form role="search" className="search" action="/search" method="get" aria-label="Buscar en el sitio">
+                <span className="icon" aria-hidden="true">🔍</span>
+                <input name="q" type="search" placeholder="Buscar guías, herramientas..." aria-label="Buscar guías, herramientas" />
+              </form>
+
+              <div style={{ display: 'flex', gap: '.5rem' }}>
+                <Link className="btn btn--secondary" to="/apps">Herramientas</Link>
+                <a className="btn btn--primary" href="https://go.hotmart.com/C99765159A" rel="noopener noreferrer" target="_blank">Comprar guía</a>
+              </div>
+            </div>
           </div>
-        </section>
+        </header>
 
-        {/* TABLA DE VENTAS */}
-        <section className="mt-12 overflow-x-auto">
-          <SalesTable />
-        </section>
+        {/* ÁREA DE CONTENIDO DINÁMICO */}
+        <div className="content container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/ahorro" element={<Ahorro />} />
+            <Route path="/apps" element={<Apps />} />
+            <Route path="/contacto" element={<Contacto />} />
+          </Routes>
+        </div>
 
-        {/* HISTORIA PERSONAL */}
-        <section className="mt-12">
-          <Story />
-        </section>
+        {/* FOOTER */}
+        <footer className="footer" role="contentinfo">
+          <div className="container footer-grid">
+            <div className="footer-section">
+              <h5>Recursos</h5>
+              <ul>
+                <li><Link to="/blog">Blog Financiero</Link></li>
+                <li><a href="/glosario">Glosario</a></li>
+                <li><a href="/calculadoras">Calculadoras</a></li>
+              </ul>
+            </div>
 
-        {/* CTA FINAL */}
-        <section className="mt-12">
-          <CTA />
-        </section>
+            <div className="footer-section">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="politica-privacidad.html">Privacidad</a></li>
+                <li><a href="terminos.html">Términos</a></li>
+                <li><a href="/afiliacion">Afiliados</a></li>
+              </ul>
+            </div>
 
-        {/* NEWSLETTER */}
-        <section className="mt-12">
-          <NewsletterForm />
-        </section>
+            <div className="footer-section">
+              <h5>Síguenos</h5>
+              <p className="muted">Consejos diarios, ofertas y novedades.</p>
+              <div className="social-links" style={{ display: 'flex', gap: '.5rem', marginTop: '.5rem' }}>
+                <a href="#" aria-label="Instagram" rel="noopener noreferrer"><img src="/instagram-icon.svg" alt="Instagram" width="28" height="28" /></a>
+                <a href="#" aria-label="TikTok" rel="noopener noreferrer"><img src="/tiktok-icon.svg" alt="TikTok" width="28" height="28" /></a>
+                <a href="#" aria-label="WhatsApp" rel="noopener noreferrer"><img src="/whatsapp-icon.svg" alt="WhatsApp" width="28" height="28" /></a>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+            <small className="muted">&copy; <span id="currentYear">{year}</span> Finanzas Jóvenes. Todos los derechos reservados.</small>
+          </div>
+        </footer>
       </main>
-
-      {/* FOOTER */}
-      <Footer />
     </div>
   );
 }

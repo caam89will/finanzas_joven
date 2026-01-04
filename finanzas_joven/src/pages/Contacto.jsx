@@ -1,4 +1,9 @@
-// src/pages/Contacto.jsx
+/**
+ * PÁGINA DE CONTACTO
+ * ------------------
+ * Formulario funcional para que los usuarios envíen mensajes.
+ * Mantiene el estilo visual de tarjetas (.card) y formularios (.form).
+ */
 import React, { useState } from "react";
 
 const Contacto = () => {
@@ -17,25 +22,29 @@ const Contacto = () => {
   };
 
   return (
-    <main>
-      <h1>Contacto</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nombre
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-        </label>
-        <label>
-          Correo
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-        </label>
-        <label>
-          Mensaje
-          <textarea name="message" value={formData.message} onChange={handleChange} required />
-        </label>
-        <button type="submit">Enviar</button>
-      </form>
-      {status && <p>{status}</p>}
-    </main>
+    <div className="container" style={{ maxWidth: '600px' }}>
+      <div className="card">
+        <div className="section-head">
+          <h2>Contáctanos</h2>
+          <p className="sub">¿Tienes dudas? Escríbenos y te responderemos pronto.</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="form" style={{ marginTop: '1rem' }}>
+          <label className="label">Nombre</label>
+          <input className="input" type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Tu nombre" />
+          
+          <label className="label">Correo</label>
+          <input className="input" type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="tucorreo@ejemplo.com" />
+          
+          <label className="label">Mensaje</label>
+          <textarea className="textarea" name="message" rows="5" value={formData.message} onChange={handleChange} required placeholder="Escribe tu mensaje aquí..."></textarea>
+          
+          <button type="submit" className="btn btn--primary">Enviar mensaje</button>
+        </form>
+        
+        {status && <div className="alert alert--success" style={{ marginTop: '1rem' }}>{status}</div>}
+      </div>
+    </div>
   );
 };
 

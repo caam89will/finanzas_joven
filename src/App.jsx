@@ -14,7 +14,7 @@ import './index.css';
 
 // Importación de las páginas individuales
 import Home from './pages/Home';
-import Blog from './pages/Blog';
+import Blog from './pages/BlogList';
 import Ahorro from './pages/Ahorro';
 import Apps from './pages/App'; // Nota: El archivo se llama App.jsx en la carpeta pages
 import Contacto from './pages/Contacto';
@@ -103,39 +103,41 @@ function App() {
         </div>
 
         {/* FOOTER */}
-        <footer className="footer" role="contentinfo">
-          <div className="container footer-grid">
-            <div className="footer-section">
-              <h5>Recursos</h5>
-              <ul>
-                <li><Link to="/blog">Blog Financiero</Link></li>
-                <li><a href="/glosario">Glosario</a></li>
-                <li><a href="/calculadoras">Calculadoras</a></li>
-              </ul>
-            </div>
+        <footer className="bg-gray-50 border-t border-gray-200 mt-12" role="contentinfo">
+          <div className="container mx-auto px-6 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <h5 className="font-bold text-gray-900 mb-4">Recursos</h5>
+                <ul className="space-y-2">
+                  <li><Link to="/blog" className="text-gray-600 hover:text-indigo-600 transition-colors">Blog Financiero</Link></li>
+                  <li><a href="/glosario" className="text-gray-600 hover:text-indigo-600 transition-colors">Glosario</a></li>
+                  <li><a href="/calculadoras" className="text-gray-600 hover:text-indigo-600 transition-colors">Calculadoras</a></li>
+                </ul>
+              </div>
 
-            <div className="footer-section">
-              <h5>Legal</h5>
-              <ul>
-                <li><Link to="/politica-privacidad">Privacidad</Link></li>
-                <li><Link to="/terminos">Términos</Link></li>
-                <li><a href="/afiliacion">Afiliados</a></li>
-              </ul>
-            </div>
+              <div>
+                <h5 className="font-bold text-gray-900 mb-4">Legal</h5>
+                <ul className="space-y-2">
+                  <li><Link to="/politica-privacidad" className="text-gray-600 hover:text-indigo-600 transition-colors">Privacidad</Link></li>
+                  <li><Link to="/terminos" className="text-gray-600 hover:text-indigo-600 transition-colors">Términos</Link></li>
+                  <li><a href="/afiliacion" className="text-gray-600 hover:text-indigo-600 transition-colors">Afiliados</a></li>
+                </ul>
+              </div>
 
-            <div className="footer-section">
-              <h5>Síguenos</h5>
-              <p className="muted">Consejos diarios, ofertas y novedades.</p>
-              <div className="social-links" style={{ display: 'flex', gap: '.5rem', marginTop: '.5rem' }}>
-                <a href="#" aria-label="Instagram" rel="noopener noreferrer"><img src="/instagram-icon.svg" alt="Instagram" width="28" height="28" /></a>
-                <a href="#" aria-label="TikTok" rel="noopener noreferrer"><img src="/tiktok-icon.svg" alt="TikTok" width="28" height="28" /></a>
-                <a href="#" aria-label="WhatsApp" rel="noopener noreferrer"><img src="/whatsapp-icon.svg" alt="WhatsApp" width="28" height="28" /></a>
+              <div>
+                <h5 className="font-bold text-gray-900 mb-4">Síguenos</h5>
+                <p className="text-gray-600 text-sm mb-4">Consejos diarios, ofertas y novedades.</p>
+                <div className="flex gap-4">
+                  <a href="#" aria-label="Instagram" rel="noopener noreferrer" className="opacity-75 hover:opacity-100 transition-opacity"><img src="/instagram-icon.svg" alt="Instagram" width="24" height="24" /></a>
+                  <a href="#" aria-label="TikTok" rel="noopener noreferrer" className="opacity-75 hover:opacity-100 transition-opacity"><img src="/tiktok-icon.svg" alt="TikTok" width="24" height="24" /></a>
+                  <a href="#" aria-label="WhatsApp" rel="noopener noreferrer" className="opacity-75 hover:opacity-100 transition-opacity"><img src="/whatsapp-icon.svg" alt="WhatsApp" width="24" height="24" /></a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-            <small className="muted">&copy; <span id="currentYear">{year}</span> Finanzas Jóvenes. Todos los derechos reservados.</small>
+            <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+              <p className="text-sm text-gray-500">&copy; <span id="currentYear">{year}</span> Finanzas Jóvenes. Todos los derechos reservados.</p>
+            </div>
           </div>
         </footer>
       </main>

@@ -18,6 +18,8 @@ import Blog from './pages/Blog';
 import Ahorro from './pages/Ahorro';
 import Apps from './pages/App'; // Nota: El archivo se llama App.jsx en la carpeta pages
 import Contacto from './pages/Contacto';
+import Politica from './pages/Politica';
+import Terminos from './pages/Terminos';
 
 function App() {
   // Estado para el año actual en el footer
@@ -95,6 +97,8 @@ function App() {
             <Route path="/ahorro" element={<Ahorro />} />
             <Route path="/apps" element={<Apps />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/politica-privacidad" element={<Politica />} />
+            <Route path="/terminos" element={<Terminos />} />
           </Routes>
         </div>
 
@@ -113,8 +117,8 @@ function App() {
             <div className="footer-section">
               <h5>Legal</h5>
               <ul>
-                <li><a href="politica-privacidad.html">Privacidad</a></li>
-                <li><a href="terminos.html">Términos</a></li>
+                <li><Link to="/politica-privacidad">Privacidad</Link></li>
+                <li><Link to="/terminos">Términos</Link></li>
                 <li><a href="/afiliacion">Afiliados</a></li>
               </ul>
             </div>

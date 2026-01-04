@@ -1,142 +1,122 @@
 /**
  * PÁGINA DE INICIO (DASHBOARD)
  * ----------------------------
- * Muestra la vista principal con:
- * - Hero section (llamada a la acción principal).
- * - KPIs (Indicadores clave de rendimiento).
- * - Tabla de ventas recientes.
- * - Formulario de newsletter.
+ * EMBUDO DE VENTAS (LANDING PAGE)
+ * Estructura optimizada para conversión:
+ * 1. Título atractivo.
+ * 2. Video de ventas (VSL).
+ * 3. Formulario de captura (Lead Magnet).
+ * 4. Beneficios clave.
  */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Home = () => {
-  // Estado para el formulario de newsletter
-  const [email, setEmail] = useState('');
-  const [msg, setMsg] = useState(null);
+  // Estado para el formulario de captura
+  const [formData, setFormData] = useState({ name: '', email: '' });
 
-  const handleNewsletter = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email) {
-      setMsg({ text: 'Introduce un correo válido.', type: 'error' });
-      return;
-    }
-    setMsg({ text: '¡Gracias! Revisa tu correo para confirmar la suscripción.', type: 'success' });
-    setEmail('');
-    setTimeout(() => setMsg(null), 3000);
+    // Aquí puedes redirigir a la página de gracias o al checkout de Hotmart
+    alert(`¡Felicidades ${formData.name}! Te estamos redirigiendo a la clase exclusiva.`);
+    // window.location.href = "TU_ENLACE_DE_HOTMART_O_GRACIAS"; 
   };
 
   return (
-    <>
-      {/* HERO */}
-      <section className="card hero" aria-label="Hero — presentación principal">
-        <div className="section-head" style={{ alignItems: 'center' }}>
-          <div>
-            <h2>Aprende a ganar dinero por internet <span className="muted" style={{ fontWeight: 600, display: 'block', fontSize: '.95rem' }}>sin invertir y paso a paso</span></h2>
-            <p className="lead muted">Guía creada por una madre emprendedora que utiliza herramientas gratuitas e inteligencia artificial para generar ingresos desde casa.</p>
-            <div style={{ display: 'flex', gap: '.6rem', marginTop: '.75rem', flexWrap: 'wrap' }}>
-              <a href="https://go.hotmart.com/C99765159A" className="btn btn--primary" rel="noopener noreferrer" target="_blank">Consigue tu Guía</a>
-              <Link to="/apps" className="btn btn--secondary">Ver herramientas gratuitas</Link>
-            </div>
+    <div className="container">
+      {/* SECCIÓN PRINCIPAL DEL EMBUDO */}
+      <section className="card" style={{ padding: '2rem', marginTop: '1rem' }}>
+        <div className="section-head" style={{ textAlign: 'center', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem' }}>
+          <h1 style={{ fontSize: '2.2rem', marginBottom: '0.5rem', lineHeight: 1.2 }}>
+            Descubre el Sistema Exacto para <span style={{ color: 'var(--brand-500)' }}>Generar Ingresos Online</span>
+          </h1>
+          <p className="lead muted" style={{ maxWidth: '700px', margin: '0 auto' }}>
+            Mira este video corto donde te revelo la estrategia para comenzar desde casa sin experiencia previa.
+          </p>
+        </div>
+
+        <div className="grid cols-2" style={{ gap: '3rem', alignItems: 'center' }}>
+          {/* COLUMNA 1: VIDEO DE VENTAS */}
+          <div className="video-container" style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}>
+            <iframe 
+              width="100%" 
+              height="350" 
+              src="https://www.youtube.com/embed/tvRV7TCmZSo" 
+              title="Video Explicativo" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              style={{ display: 'block' }}
+            ></iframe>
           </div>
-          <figure style={{ width: '48%', margin: 0 }}>
-            <img src="/img/portada.png" alt="Portada" width="720" height="480" style={{ borderRadius: '.75rem', border: '1px solid var(--border)' }} />
-          </figure>
-        </div>
-      </section>
 
-      {/* KPI */}
-      <section className="kpi" aria-label="Indicadores principales" style={{ marginTop: '.25rem' }}>
-        <div className="tile card">
-          <div className="label">Ingresos mensuales</div>
-          <div className="value">$420.000</div>
-          <div className="delta up">+12% mes</div>
-        </div>
-        <div className="tile card">
-          <div className="label">Leads captados</div>
-          <div className="value">1.245</div>
-          <div className="delta up">+8% semana</div>
-        </div>
-        <div className="tile card">
-          <div className="label">Tasa de conversión</div>
-          <div className="value">3.9%</div>
-          <div className="delta down">-0.3%</div>
-        </div>
-        <div className="tile card">
-          <div className="label">Valor promedio</div>
-          <div className="value">$14.900</div>
-          <div className="delta up">+1.2%</div>
-        </div>
-      </section>
+          {/* COLUMNA 2: FORMULARIO DE CAPTURA */}
+          <div style={{ padding: '2rem', backgroundColor: 'var(--bg)', borderRadius: '1rem', border: '1px solid var(--border)' }}>
+            <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Regístrate para Acceder</h3>
+            
+            <form onSubmit={handleSubmit} className="form">
+              <div style={{ marginBottom: '1rem' }}>
+                <label className="label" htmlFor="name">Tu Nombre</label>
+                <input 
+                  id="name"
+                  type="text" 
+                  className="input" 
+                  placeholder="Ej. Carlos Pérez" 
+                  required 
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  style={{ width: '100%' }}
+                />
+              </div>
 
-      {/* Recursos */}
-      <section aria-labelledby="recursos" style={{ marginTop: '1rem' }}>
-        <div className="section-head">
-          <h2 id="recursos">Guías y recursos</h2>
-          <div className="sub">Recursos seleccionados para comenzar hoy</div>
-        </div>
-        <div className="grid cols-3" style={{ marginTop: '1rem' }}>
-          <article className="content-card card">
-            <div className="card-head"><h3 className="card-title">12 formas de ganar dinero</h3></div>
-            <p className="muted">Lista práctica con pasos diarios. Ideal para comenzar sin inversión.</p>
-            <div style={{ marginTop: '.75rem', display: 'flex', gap: '.5rem' }}>
-              <Link className="btn btn--ghost" to="/blog">Leer</Link>
-              <a className="btn btn--primary" href="https://go.hotmart.com/C99765159A" target="_blank">Descargar</a>
-            </div>
-          </article>
-          {/* Más tarjetas... */}
-        </div>
-      </section>
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label className="label" htmlFor="email">Tu Correo Electrónico</label>
+                <input 
+                  id="email"
+                  type="email" 
+                  className="input" 
+                  placeholder="tucorreo@gmail.com" 
+                  required 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  style={{ width: '100%' }}
+                />
+              </div>
 
-      {/* Tabla de Ventas */}
-      <section aria-labelledby="tabla-ventas" style={{ marginTop: '1rem' }}>
-        <h3 id="tabla-ventas">Resumen de ventas recientes</h3>
-        <div className="table-wrap" style={{ marginTop: '.5rem' }}>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th className="num">Unidades</th>
-                <th className="num">Ingreso</th>
-                <th>Canal</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Guía "Emprende Ya"</td>
-                <td className="num">120</td>
-                <td className="num">$1.788.000</td>
-                <td>Hotmart</td>
-                <td><span className="badge badge--neutral">Activo</span></td>
-              </tr>
-              {/* Más filas... */}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section id="newsletter" className="card" style={{ marginTop: '1rem' }}>
-        <h4>Suscríbete para consejos diarios</h4>
-        <form className="form" onSubmit={handleNewsletter}>
-          <label className="label" htmlFor="email">Correo electrónico</label>
-          <input 
-            id="email" 
-            className="input" 
-            type="email" 
-            placeholder="tucorreo@ejemplo.com" 
-            required 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <div style={{ display: 'flex', gap: '.5rem' }}>
-            <button type="submit" className="btn btn--primary">Recibir consejos</button>
+              <button type="submit" className="btn btn--primary" style={{ width: '100%', justifyContent: 'center', fontSize: '1.1rem', padding: '0.75rem' }}>
+                👉 Quiero Ver la Clase Ahora
+              </button>
+              
+              <p className="muted" style={{ fontSize: '0.8rem', marginTop: '1rem', textAlign: 'center' }}>
+                🔒 Tus datos están 100% seguros. No enviamos spam.
+              </p>
+            </form>
           </div>
-          {msg && <div className={msg.type === 'error' ? 'error' : 'success'}>{msg.text}</div>}
-        </form>
+        </div>
       </section>
-    </>
+
+      {/* SECCIÓN DE BENEFICIOS (PRUEBA SOCIAL / VALOR) */}
+      <section style={{ marginTop: '3rem', textAlign: 'center', paddingBottom: '3rem' }}>
+        <h3 className="muted" style={{ marginBottom: '2rem', fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Lo que aprenderás en este entrenamiento</h3>
+        
+        <div className="grid cols-3" style={{ gap: '2rem' }}>
+          <div className="card" style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🚀</div>
+            <h4>Primeros Pasos</h4>
+            <p className="muted">Cómo configurar tu cuenta y elegir el producto ganador.</p>
+          </div>
+          <div className="card" style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>💡</div>
+            <h4>Estrategia Orgánica</h4>
+            <p className="muted">Vende sin invertir en publicidad usando redes sociales.</p>
+          </div>
+          <div className="card" style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>📈</div>
+            <h4>Escalado</h4>
+            <p className="muted">Cómo automatizar tus ventas para generar ingresos pasivos.</p>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 

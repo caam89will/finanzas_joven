@@ -13,12 +13,35 @@ import React, { useState } from "react";
 const Home = () => {
   // Estado para el formulario de captura
   const [formData, setFormData] = useState({ name: '', email: '' });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes redirigir a la página de gracias o al checkout de Hotmart
-    alert(`¡Felicidades ${formData.name}! Te estamos redirigiendo a la clase exclusiva.`);
-    // window.location.href = "TU_ENLACE_DE_HOTMART_O_GRACIAS"; 
+    setIsLoading(true);
+    
+    try {
+      // Enviamos los datos a nuestro servidor Node.js (puerto 3001)
+      const response = await fetch('http://localhost:3001/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(`¡Felicidades ${formData.name}! Tus datos se han guardado. Te estamos redirigiendo a la clase...`);
+        // window.location.href = "TU_ENLACE_DE_HOTMART"; 
+        setFormData({ name: '', email: '' });
+      } else {
+        alert(data.message || "Hubo un error al registrarte.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("No pudimos conectar con el servidor. Asegúrate de que el backend esté corriendo.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -82,8 +105,8 @@ const Home = () => {
                 />
               </div>
 
-              <button type="submit" className="btn btn--primary" style={{ width: '100%', justifyContent: 'center', fontSize: '1.1rem', padding: '0.75rem' }}>
-                👉 Quiero Acceder al Entrenamiento Ahora
+              <button type="submit" className="btn btn--primary" disabled={isLoading} style={{ width: '100%', justifyContent: 'center', fontSize: '1.1rem', padding: '0.75rem', opacity: isLoading ? 0.7 : 1 }}>
+                {isLoading ? 'Procesando...' : '👉 Quiero Acceder al Entrenamiento Ahora'}
               </button>
               
               <p className="muted" style={{ fontSize: '0.8rem', marginTop: '1rem', textAlign: 'center' }}>

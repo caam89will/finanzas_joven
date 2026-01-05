@@ -130,6 +130,7 @@ function App() {
             <Route path="/terminos" element={<Terminos />} />
           </Routes>
         </div>
+      </main>
 
         {/* FOOTER */}
         <footer className="footer" role="contentinfo" style={{ backgroundColor: 'white', borderTop: '1px solid var(--border)' }}>

@@ -1,6 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const PORT = 3001;
@@ -11,10 +14,7 @@ app.use(express.json());
 
 // 1. Conexión a Base de Datos (MongoDB)
 // IMPORTANTE: Reemplaza esta URL con la de tu MongoDB Atlas si lo subes a internet
-// Opción 1: Local (Asegúrate de tener MongoDB Community Server instalado y corriendo)
-const MONGO_URI = 'mongodb://127.0.0.1:27017/finanzas_joven';
-// Opción 2: Nube (MongoDB Atlas) - Descomenta la siguiente línea y pon tu contraseña
-// const MONGO_URI = 'mongodb+srv://TU_USUARIO:TU_PASSWORD@cluster0.xxxxx.mongodb.net/finanzas_joven';
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('✅ Conectado a la Base de Datos'))

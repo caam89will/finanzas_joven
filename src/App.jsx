@@ -34,63 +34,35 @@ function App() {
   }, []);
 
   return (
-    <div className="shell" role="application">
-      {/* SIDEBAR */}
-      <aside className="sidebar" aria-label="Navegación principal">
-        <div className="brand" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect width="24" height="24" rx="6" fill="#4b74ff"></rect>
-          </svg>
-          <span>Finanzas Jóvenes</span>
+    <div className="shell" role="application" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {/* HEADER (Top Navigation) */}
+      <header className="header" role="banner" style={{ borderBottom: '1px solid var(--border)', backgroundColor: 'var(--bg)' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem' }}>
+          
+          {/* Brand */}
+          <div className="brand" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 'bold', fontSize: '1.25rem' }}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect width="24" height="24" rx="6" fill="#4b74ff"></rect>
+            </svg>
+            <span>Finanzas Jóvenes</span>
+          </div>
+
+          {/* Nav */}
+          <nav className="nav" aria-label="Menú principal" style={{ display: 'flex', gap: '1.5rem' }}>
+            <Link to="/" className={isActive('/')} style={{ textDecoration: 'none', fontWeight: 500 }}>Inicio</Link>
+            <Link to="/blog" className={isActive('/blog')} style={{ textDecoration: 'none', fontWeight: 500 }}>Blog</Link>
+            <Link to="/ahorro" className={isActive('/ahorro')} style={{ textDecoration: 'none', fontWeight: 500 }}>Ahorro</Link>
+            <Link to="/apps" className={isActive('/apps')} style={{ textDecoration: 'none', fontWeight: 500 }}>Apps</Link>
+            <Link to="/contacto" className={isActive('/contacto')} style={{ textDecoration: 'none', fontWeight: 500 }}>Contacto</Link>
+          </nav>
         </div>
-
-        <nav className="nav" aria-label="Menú principal">
-          {/* Usamos Link en lugar de <a> para navegación SPA (sin recarga) */}
-          <Link to="/" className={isActive('/')}>Inicio</Link>
-          <Link to="/blog" className={isActive('/blog')}>Blog</Link>
-          <Link to="/ahorro" className={isActive('/ahorro')}>Ahorro</Link>
-          <Link to="/apps" className={isActive('/apps')}>Apps</Link>
-          <Link to="/contacto" className={isActive('/contacto')}>Contacto</Link>
-        </nav>
-
-        <hr style={{ margin: '1rem 0', borderColor: 'var(--border)' }} />
-
-        <div className="card" style={{ marginTop: '1rem' }}>
-          <div className="card-head"><div className="card-title">Guía recomendada</div></div>
-          <p className="muted" style={{ fontSize: '.95rem' }}>Descarga mi guía paso a paso para comenzar hoy mismo.</p>
-          <a className="btn btn--primary" href="https://go.hotmart.com/C99765159A" rel="noopener noreferrer" target="_blank">Descargar guía</a>
-        </div>
-      </aside>
+      </header>
 
       {/* MAIN */}
-      <main className="main" id="mainContent" tabIndex="-1">
-        {/* HEADER */}
-        <header className="header" role="banner">
-          <div className="header-inner container">
-            <div style={{ display: 'flex', gap: '.75rem', alignItems: 'center' }}>
-              <button className="btn btn--ghost" aria-label="Abrir menú">☰</button>
-              <div>
-                <h1 style={{ fontSize: '1.05rem', margin: 0 }}>💰 Gana Dinero por Internet</h1>
-                <div className="muted" style={{ fontSize: '.85rem' }}>Estrategias para emprender desde casa</div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', gap: '.75rem', alignItems: 'center', width: '100%', maxWidth: '640px' }}>
-              <form role="search" className="search" action="/search" method="get" aria-label="Buscar en el sitio">
-                <span className="icon" aria-hidden="true">🔍</span>
-                <input name="q" type="search" placeholder="Buscar guías, herramientas..." aria-label="Buscar guías, herramientas" />
-              </form>
-
-              <div style={{ display: 'flex', gap: '.5rem' }}>
-                <Link className="btn btn--secondary" to="/apps">Herramientas</Link>
-                <a className="btn btn--primary" href="https://go.hotmart.com/C99765159A" rel="noopener noreferrer" target="_blank">Comprar guía</a>
-              </div>
-            </div>
-          </div>
-        </header>
+      <main className="main" id="mainContent" tabIndex="-1" style={{ flex: 1 }}>
 
         {/* ÁREA DE CONTENIDO DINÁMICO */}
-        <div className="content container">
+        <div className="content container" style={{ padding: '2rem 0' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />

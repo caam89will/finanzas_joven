@@ -27,10 +27,10 @@ const Home = () => {
       <section className="card" style={{ padding: '2rem', marginTop: '1rem' }}>
         <div className="section-head" style={{ textAlign: 'center', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem' }}>
           <h1 style={{ fontSize: '2.2rem', marginBottom: '0.5rem', lineHeight: 1.2 }}>
-            Descubre el Sistema Exacto para <span style={{ color: 'var(--brand-500)' }}>Generar Ingresos Online</span>
+            Entrenamiento: Sistema Exacto para <span style={{ color: 'var(--brand-500)' }}>Generar Ingresos Online desde Casa</span>
           </h1>
           <p className="lead muted" style={{ maxWidth: '700px', margin: '0 auto' }}>
-            Mira este video corto donde te revelo la estrategia para comenzar desde casa sin experiencia previa.
+            Mira este video corto donde te revelo la estrategia probada de <strong>Marketing de Afiliados</strong> para ganar dinero por internet sin experiencia previa.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ const Home = () => {
               </div>
 
               <button type="submit" className="btn btn--primary" style={{ width: '100%', justifyContent: 'center', fontSize: '1.1rem', padding: '0.75rem' }}>
-                👉 Quiero Ver la Clase Ahora
+                👉 Quiero Acceder al Entrenamiento Ahora
               </button>
               
               <p className="muted" style={{ fontSize: '0.8rem', marginTop: '1rem', textAlign: 'center' }}>
@@ -102,17 +102,17 @@ const Home = () => {
           <div className="card" style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🚀</div>
             <h4>Primeros Pasos</h4>
-            <p className="muted">Cómo configurar tu cuenta y elegir el producto ganador.</p>
+            <p className="muted">Cómo elegir un <strong>producto ganador en Hotmart</strong> para vender masivamente.</p>
           </div>
           <div className="card" style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>💡</div>
             <h4>Estrategia Orgánica</h4>
-            <p className="muted">Vende sin invertir en publicidad usando redes sociales.</p>
+            <p className="muted">Cómo <strong>vender sin invertir en publicidad</strong> usando TikTok e Instagram.</p>
           </div>
           <div className="card" style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>📈</div>
             <h4>Escalado</h4>
-            <p className="muted">Cómo automatizar tus ventas para generar ingresos pasivos.</p>
+            <p className="muted">Secretos para <strong>automatizar tus ventas</strong> y generar ingresos pasivos recurrentes.</p>
           </div>
         </div>
       </section>

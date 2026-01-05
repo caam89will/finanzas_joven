@@ -17,6 +17,7 @@ import Home from './pages/Home';
 import Blog from './pages/BlogList';
 import Ahorro from './pages/Ahorro';
 import Apps from './pages/App'; // Nota: El archivo se llama App.jsx en la carpeta pages
+import Calculadora from './pages/Calculadora';
 import Contacto from './pages/Contacto';
 import Politica from './pages/Politica';
 import Terminos from './pages/Terminos';
@@ -27,7 +28,6 @@ function App() {
   
   // Hook para saber en qué ruta estamos y resaltar el menú
   const location = useLocation();
-  const isActive = (path) => location.pathname === path ? 'active' : '';
 
   useEffect(() => {
     setYear(new Date().getFullYear());
@@ -55,68 +55,76 @@ function App() {
   }, []);
 
   return (
-    <div className="shell" role="application">
-      {/* SIDEBAR */}
-      <aside className="sidebar" aria-label="Navegación principal">
-        <div className="brand" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect width="24" height="24" rx="6" fill="#4b74ff"></rect>
-          </svg>
-          <span>Finanzas Jóvenes</span>
-        </div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#f8fafc' }}>
+      {/* NAVBAR SUPERIOR PROFESIONAL */}
+      <header style={{ backgroundColor: '#0f172a', borderBottom: '1px solid #1e293b', position: 'sticky', top: 0, zIndex: 50, boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+          
+          {/* BRAND */}
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect width="24" height="24" rx="6" fill="#4b74ff"></rect>
+            </svg>
+            <span style={{ color: 'white', fontWeight: '700', fontSize: '1.25rem', letterSpacing: '-0.5px' }}>
+              Finanzas Jóvenes
+            </span>
+          </Link>
 
-        <nav className="nav" aria-label="Menú principal">
-          {/* Usamos Link en lugar de <a> para navegación SPA (sin recarga) */}
-          <Link to="/" className={isActive('/')}>Inicio</Link>
-          <Link to="/blog" className={isActive('/blog')}>Blog</Link>
-          <Link to="/ahorro" className={isActive('/ahorro')}>Ahorro</Link>
-          <Link to="/apps" className={isActive('/apps')}>Apps</Link>
-          <Link to="/contacto" className={isActive('/contacto')}>Contacto</Link>
-        </nav>
+          {/* NAV LINKS */}
+          <nav style={{ display: 'flex', gap: '32px' }}>
+            {[
+              { path: '/', label: 'Inicio' },
+              { path: '/blog', label: 'Blog' },
+              { path: '/ahorro', label: 'Inversiones' },
+              { path: '/apps', label: 'Herramientas' },
+              { path: '/calculadoras', label: 'Calculadoras' },
+              { path: '/contacto', label: 'Contacto' }
+            ].map(link => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link 
+                  key={link.path}
+                  to={link.path}
+                  style={{ 
+                    color: isActive ? '#4b74ff' : '#94a3b8',
+                    textDecoration: 'none',
+                    fontWeight: isActive ? '600' : '500',
+                    fontSize: '0.95rem',
+                    transition: 'color 0.2s'
+                  }}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+          </nav>
 
-        <hr style={{ margin: '1rem 0', borderColor: 'var(--border)' }} />
-
-        <div className="card" style={{ marginTop: '1rem' }}>
-          <div className="card-head"><div className="card-title">Guía recomendada</div></div>
-          <p className="muted" style={{ fontSize: '.95rem' }}>Descarga mi guía paso a paso para comenzar hoy mismo.</p>
-          <a className="btn btn--primary" href="https://go.hotmart.com/C99765159A" rel="noopener noreferrer" target="_blank">Descargar guía</a>
-        </div>
-      </aside>
-
-      {/* MAIN */}
-      <main className="main" id="mainContent" tabIndex="-1">
-        {/* HEADER */}
-        <header className="header" role="banner">
-          <div className="header-inner container">
-            <div style={{ display: 'flex', gap: '.75rem', alignItems: 'center' }}>
-              <button className="btn btn--ghost" aria-label="Abrir menú">☰</button>
-              <div>
-                <h1 style={{ fontSize: '1.05rem', margin: 0 }}>💰 Curso: Cómo Ganar Dinero por Internet</h1>
-                <div className="muted" style={{ fontSize: '.85rem' }}>Guía de Marketing de Afiliados para Principiantes</div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', gap: '.75rem', alignItems: 'center', width: '100%', maxWidth: '640px' }}>
-              <form role="search" className="search" action="/search" method="get" aria-label="Buscar en el sitio">
-                <span className="icon" aria-hidden="true">🔍</span>
-                <input name="q" type="search" placeholder="Buscar guías, herramientas..." aria-label="Buscar guías, herramientas" />
-              </form>
-
-              <div style={{ display: 'flex', gap: '.5rem' }}>
-                <Link className="btn btn--secondary" to="/apps">Herramientas</Link>
-                <a className="btn btn--primary" href="https://go.hotmart.com/C99765159A" rel="noopener noreferrer" target="_blank">Comprar guía</a>
-              </div>
-            </div>
+          {/* CTA BUTTON */}
+          <div>
+             <a 
+               href="https://go.hotmart.com/C99765159A" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="btn btn--primary"
+               style={{ padding: '0.6rem 1.2rem', fontSize: '0.9rem', borderRadius: '8px' }}
+             >
+               Acceso Premium
+             </a>
           </div>
-        </header>
+        </div>
+      </header>
+
+      {/* MAIN CONTENT */}
+      <main style={{ flex: 1 }}>
 
         {/* ÁREA DE CONTENIDO DINÁMICO */}
-        <div className="content container">
+        <div className="content container" style={{ padding: '2rem 0' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/ahorro" element={<Ahorro />} />
             <Route path="/apps" element={<Apps />} />
+            <Route path="/calculadoras" element={<Calculadora />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/politica-privacidad" element={<Politica />} />
             <Route path="/terminos" element={<Terminos />} />
@@ -124,7 +132,7 @@ function App() {
         </div>
 
         {/* FOOTER */}
-        <footer className="footer" role="contentinfo">
+        <footer className="footer" role="contentinfo" style={{ backgroundColor: 'white', borderTop: '1px solid var(--border)' }}>
           <div className="container">
             <div className="grid cols-3" style={{ textAlign: 'left', marginBottom: '2rem' }}>
               <div>
@@ -132,7 +140,7 @@ function App() {
                 <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '.5rem' }}>
                   <li><Link to="/blog" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Blog Financiero</Link></li>
                   <li><a href="/glosario" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Glosario</a></li>
-                  <li><a href="/calculadoras" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Calculadoras</a></li>
+                  <li><Link to="/calculadoras" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Calculadoras</Link></li>
                 </ul>
               </div>
 
@@ -173,7 +181,6 @@ function App() {
             </div>
           </div>
         </footer>
-      </main>
     </div>
   );
 }

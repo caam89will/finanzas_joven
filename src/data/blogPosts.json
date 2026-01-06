@@ -7,7 +7,7 @@
     "tag": "Inversión",
     "tagColor": "blue",
     "date": "Hace 2 días",
-    "link": "#"
+    "link": "/blog/errores-inversion"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "tag": "Ahorro",
     "tagColor": "green",
     "date": "Hace 5 días",
-    "link": "#"
+    "link": "/blog/metodo-50-30-20"
   },
   {
     "id": 3,
@@ -27,6 +27,6 @@
     "tag": "Ingresos",
     "tagColor": "yellow",
     "date": "Hace 1 semana",
-    "link": "#"
+    "link": "/blog/ingresos-pasivos-casa"
   }
 ]

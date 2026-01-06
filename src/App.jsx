@@ -21,6 +21,10 @@ import Calculadora from './pages/Calculadora';
 import Contacto from './pages/Contacto';
 import Politica from './pages/Politica';
 import Terminos from './pages/Terminos';
+// Artículos del Blog
+import ErroresInversion from './pages/blog/ErroresInversion';
+import Metodo503020 from './pages/blog/Metodo503020';
+import IngresosPasivos from './pages/blog/IngresosPasivos';
 
 function App() {
   // Estado para el año actual en el footer
@@ -128,6 +132,10 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/politica-privacidad" element={<Politica />} />
             <Route path="/terminos" element={<Terminos />} />
+            {/* Rutas de los artículos */}
+            <Route path="/blog/errores-inversion" element={<ErroresInversion />} />
+            <Route path="/blog/metodo-50-30-20" element={<Metodo503020 />} />
+            <Route path="/blog/ingresos-pasivos-casa" element={<IngresosPasivos />} />
           </Routes>
         </div>
       </main>

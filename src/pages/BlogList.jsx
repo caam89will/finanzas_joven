@@ -1,5 +1,6 @@
 import React from 'react';
 import blogPosts from '../data/blogPosts.json';
+import { Link } from 'react-router-dom';
 
 // Mapeo de colores usando las variables CSS de tu proyecto
 const tagStyles = {
@@ -48,13 +49,13 @@ const BlogList = () => {
                 <p className="muted" style={{ fontSize: '0.95rem', marginBottom: '1.5rem', flex: 1 }}>
                   {post.excerpt}
                 </p>
-                <a 
-                  href={post.link} 
+                <Link 
+                  to={post.link} 
                   className="btn btn--ghost"
                   style={{ justifyContent: 'center', marginTop: 'auto' }}
                 >
                   Leer artículo
-                </a>
+                </Link>
               </div>
             </article>
           ))}

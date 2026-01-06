@@ -16,7 +16,10 @@ app.use(express.json());
 // IMPORTANTE: Reemplaza esta URL con la de tu MongoDB Atlas si lo subes a internet
 const MONGO_URI = process.env.MONGO_URI;
 
-mongoose.connect(MONGO_URI)
+mongoose.connect(MONGO_URI, {
+  serverSelectionTimeoutMS: 5000, // Tiempo máximo para intentar conectar
+  family: 4 // Forzar uso de IPv4 (ayuda a evitar errores de DNS ETIMEOUT)
+})
   .then(() => console.log('✅ Conectado a la Base de Datos'))
   .catch(err => {
     console.error('❌ Error de conexión a MongoDB:', err.message);
@@ -41,6 +44,11 @@ app.get('/', (req, res) => {
 // 3. Ruta para recibir los datos desde la web
 app.post('/api/register', async (req, res) => {
   try {
+    // Verificar estado de la conexión a MongoDB (1 = conectado)
+    if (mongoose.connection.readyState !== 1) {
+      throw new Error("La base de datos no está conectada. Revisa la terminal del backend.");
+    }
+
     const { name, email } = req.body;
     
     // Validar si ya existe
@@ -55,7 +63,8 @@ app.post('/api/register', async (req, res) => {
     console.log(`Nuevo lead capturado: ${email}`);
     res.status(201).json({ message: '¡Registro exitoso!' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al guardar', error });
+    console.error("❌ Error al guardar en BD:", error);
+    res.status(500).json({ message: 'Error al guardar', error: error.message });
   }
 });
 

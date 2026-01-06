@@ -34,7 +34,7 @@ const Home = () => {
         // window.location.href = "TU_ENLACE_DE_HOTMART"; 
         setFormData({ name: '', email: '' });
       } else {
-        alert(data.message || "Hubo un error al registrarte.");
+        alert(`Error: ${data.message}\nDetalle: ${data.error || 'Desconocido'}`);
       }
     } catch (error) {
       console.error("Error:", error);

@@ -14,10 +14,12 @@ const Home = () => {
   // Estado para el formulario de captura
   const [formData, setFormData] = useState({ name: '', email: '' });
   const [isLoading, setIsLoading] = useState(false);
+  const [notification, setNotification] = useState(null); // Nuevo estado para mensajes visuales
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setNotification(null); // Limpiar mensajes previos
     
     try {
       // Enviamos los datos a nuestro servidor Node.js (puerto 3001)
@@ -30,15 +32,24 @@ const Home = () => {
       const data = await response.json();
 
       if (response.ok) {
-        alert(`¡Felicidades ${formData.name}! Tus datos se han guardado. Te estamos redirigiendo a la clase...`);
+        setNotification({
+          type: 'success',
+          message: `¡Felicidades ${formData.name}! Tus datos se han guardado. Te estamos redirigiendo a la clase...`
+        });
         // window.location.href = "TU_ENLACE_DE_HOTMART"; 
         setFormData({ name: '', email: '' });
       } else {
-        alert(`Error: ${data.message}\nDetalle: ${data.error || 'Desconocido'}`);
+        setNotification({
+          type: 'error',
+          message: `Error: ${data.message}`
+        });
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("No pudimos conectar con el servidor. Asegúrate de que el backend esté corriendo.");
+      setNotification({
+        type: 'error',
+        message: "No pudimos conectar con el servidor. Se activará el modo offline automáticamente."
+      });
     } finally {
       setIsLoading(false);
     }
@@ -57,9 +68,9 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="grid cols-2" style={{ gap: '3rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3rem', alignItems: 'center', justifyContent: 'center' }}>
           {/* COLUMNA 1: VIDEO DE VENTAS */}
-          <div className="video-container" style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}>
+          <div className="video-container" style={{ flex: '1 1 400px', minWidth: '300px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}>
             <iframe 
               width="100%" 
               height="350" 
@@ -73,9 +84,24 @@ const Home = () => {
           </div>
 
           {/* COLUMNA 2: FORMULARIO DE CAPTURA */}
-          <div style={{ padding: '2rem', backgroundColor: 'var(--bg)', borderRadius: '1rem', border: '1px solid var(--border)' }}>
+          <div style={{ flex: '1 1 350px', minWidth: '300px', padding: '2rem', backgroundColor: 'var(--bg)', borderRadius: '1rem', border: '1px solid var(--border)' }}>
             <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Regístrate para Acceder</h3>
             
+            {/* Notificación Visual (Banner) */}
+            {notification && (
+              <div style={{
+                padding: '1rem',
+                marginBottom: '1rem',
+                borderRadius: '0.5rem',
+                backgroundColor: notification.type === 'success' ? '#dcfce7' : '#fee2e2',
+                color: notification.type === 'success' ? '#166534' : '#991b1b',
+                border: `1px solid ${notification.type === 'success' ? '#bbf7d0' : '#fecaca'}`,
+                fontSize: '0.9rem'
+              }}>
+                {notification.message}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="form">
               <div style={{ marginBottom: '1rem' }}>
                 <label className="label" htmlFor="name">Tu Nombre</label>
@@ -121,18 +147,18 @@ const Home = () => {
       <section style={{ marginTop: '3rem', textAlign: 'center', paddingBottom: '3rem' }}>
         <h3 className="muted" style={{ marginBottom: '2rem', fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Lo que aprenderás en este entrenamiento</h3>
         
-        <div className="grid cols-3" style={{ gap: '2rem' }}>
-          <div className="card" style={{ textAlign: 'center' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
+          <div className="card" style={{ flex: '1 1 250px', textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🚀</div>
             <h4>Primeros Pasos</h4>
             <p className="muted">Cómo elegir un <strong>producto ganador en Hotmart</strong> para vender masivamente.</p>
           </div>
-          <div className="card" style={{ textAlign: 'center' }}>
+          <div className="card" style={{ flex: '1 1 250px', textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>💡</div>
             <h4>Estrategia Orgánica</h4>
             <p className="muted">Cómo <strong>vender sin invertir en publicidad</strong> usando TikTok e Instagram.</p>
           </div>
-          <div className="card" style={{ textAlign: 'center' }}>
+          <div className="card" style={{ flex: '1 1 250px', textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>📈</div>
             <h4>Escalado</h4>
             <p className="muted">Secretos para <strong>automatizar tus ventas</strong> y generar ingresos pasivos recurrentes.</p>

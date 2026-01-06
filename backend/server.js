@@ -17,8 +17,7 @@ app.use(express.json());
 const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI, {
-  serverSelectionTimeoutMS: 5000, // Tiempo máximo para intentar conectar
-  family: 4 // Forzar uso de IPv4 (ayuda a evitar errores de DNS ETIMEOUT)
+  family: 4
 })
   .then(() => console.log('✅ Conectado a la Base de Datos'))
   .catch(err => {
@@ -65,6 +64,16 @@ app.post('/api/register', async (req, res) => {
   } catch (error) {
     console.error("❌ Error al guardar en BD:", error);
     res.status(500).json({ message: 'Error al guardar', error: error.message });
+  }
+});
+
+// 4. Ruta para ver los suscriptores (Admin)
+app.get('/api/subscribers', async (req, res) => {
+  try {
+    const subscribers = await Subscriber.find().sort({ registeredAt: -1 });
+    res.json(subscribers);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener suscriptores', error: error.message });
   }
 });
 

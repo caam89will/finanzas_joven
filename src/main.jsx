@@ -1,11 +1,4 @@
 /**
- * PUNTO DE ENTRADA PRINCIPAL (ENTRY POINT)
- * ----------------------------------------
- * Este archivo inicializa la aplicación React.
- * Monta el componente raíz <App /> dentro del elemento DOM con id 'root'.
- * Importa los estilos globales.
- */
-/**
  * PUNTO DE ENTRADA (ENTRY POINT)
  * ------------------------------
  * Este archivo inicializa React y configura el enrutador principal.

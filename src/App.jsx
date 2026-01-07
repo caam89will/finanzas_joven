@@ -10,7 +10,6 @@
  */
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import './index.css';
 
 // Importación de las páginas individuales
 import Home from './pages/Home';
@@ -21,10 +20,11 @@ import Calculadora from './pages/Calculadora';
 import Contacto from './pages/Contacto';
 import Politica from './pages/Politica';
 import Terminos from './pages/Terminos';
+import Training from './pages/Training';
 // Artículos del Blog
-import ErroresInversion from './pages/blog/ErroresInversion';
-import Metodo503020 from './pages/blog/Metodo503020';
-import IngresosPasivos from './pages/blog/IngresosPasivos';
+import ErroresInversion from './pages/ErroresInversion';
+import Metodo503020 from './pages/Metodo503020';
+import IngresosPasivos from './pages/IngresosPasivos';
 
 function App() {
   // Estado para el año actual en el footer
@@ -40,7 +40,8 @@ function App() {
     // REEMPLAZA 'G-XXXXXXXXXX' CON TU ID DE MEDICIÓN REAL
     const GA_ID = 'G-XXXXXXXXXX';
 
-    if (!document.getElementById('ga-script')) {
+    // Solo inyectar si el ID es válido y no existe el script
+    if (GA_ID !== 'G-XXXXXXXXXX' && !document.getElementById('ga-script')) {
       const script = document.createElement('script');
       script.id = 'ga-script';
       script.async = true;
@@ -135,7 +136,21 @@ function App() {
             {/* Rutas de los artículos */}
             <Route path="/blog/errores-inversion" element={<ErroresInversion />} />
             <Route path="/blog/metodo-50-30-20" element={<Metodo503020 />} />
+            <Route path="/training" element={<Training />} />
             <Route path="/blog/ingresos-pasivos-casa" element={<IngresosPasivos />} />
+            
+            {/* Rutas Placeholder para enlaces del footer (Evita errores 404) */}
+            <Route path="/glosario" element={<div className="container" style={{padding: '4rem 0', textAlign: 'center'}}><h2>Glosario Financiero</h2><p className="muted">Próximamente disponible.</p><Link to="/" className="btn btn--primary" style={{marginTop: '1rem', display: 'inline-block'}}>Volver al inicio</Link></div>} />
+            <Route path="/afiliacion" element={<div className="container" style={{padding: '4rem 0', textAlign: 'center'}}><h2>Programa de Afiliados</h2><p className="muted">Próximamente disponible.</p></div>} />
+            
+            {/* Ruta 404 - Página no encontrada */}
+            <Route path="*" element={
+              <div className="container" style={{padding: '4rem 0', textAlign: 'center'}}>
+                <h2 style={{fontSize: '2rem', marginBottom: '1rem'}}>404</h2>
+                <p className="muted" style={{marginBottom: '2rem'}}>La página que buscas no existe.</p>
+                <Link to="/" className="btn btn--primary" style={{textDecoration: 'none', padding: '0.5rem 1rem', borderRadius: '6px'}}>Volver al Inicio</Link>
+              </div>
+            } />
           </Routes>
         </div>
       </main>
@@ -148,7 +163,7 @@ function App() {
                 <h5 style={{ marginBottom: '1rem', color: 'var(--text)', fontWeight: 'bold' }}>Recursos</h5>
                 <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '.5rem' }}>
                   <li><Link to="/blog" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Blog Financiero</Link></li>
-                  <li><a href="/glosario" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Glosario</a></li>
+                  <li><Link to="/glosario" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Glosario</Link></li>
                   <li><Link to="/calculadoras" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Calculadoras</Link></li>
                 </ul>
               </div>
@@ -158,7 +173,7 @@ function App() {
                 <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '.5rem' }}>
                   <li><Link to="/politica-privacidad" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Privacidad</Link></li>
                   <li><Link to="/terminos" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Términos</Link></li>
-                  <li><a href="/afiliacion" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Afiliados</a></li>
+                  <li><Link to="/afiliacion" style={{ textDecoration: 'none', color: 'var(--muted)' }}>Afiliados</Link></li>
                 </ul>
               </div>
 

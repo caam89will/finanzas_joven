@@ -2,50 +2,40 @@ import React from 'react';
 
 const Politica = () => {
   return (
-    <section className="py-12 bg-white">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Política de Privacidad</h1>
-        <div className="text-gray-600 leading-relaxed">
-          <p className="mb-4 text-sm text-gray-500">Última actualización: {new Date().toLocaleDateString()}</p>
-          
-          <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">1. Introducción</h2>
-          <p className="mb-4">
-            En <strong>Finanzas Jóvenes</strong>, respetamos su privacidad y estamos comprometidos a protegerla. Esta política describe los tipos de información que podemos recopilar de usted o que usted puede proporcionar cuando visita nuestro sitio web.
+    <div className="container" style={{ maxWidth: '800px', padding: '2rem 1rem' }}>
+      <div className="card">
+        <header className="section-head" style={{ marginBottom: '2rem', borderBottom: '1px solid var(--border)', paddingBottom: '1rem' }}>
+          <h2>Política de Privacidad</h2>
+          <p className="sub">Última actualización: {new Date().toLocaleDateString()}</p>
+        </header>
+
+        <div style={{ lineHeight: '1.7', color: 'var(--text)' }}>
+          <p style={{ marginBottom: '1rem' }}>
+            En <strong>Finanzas Jóvenes</strong>, valoramos su privacidad. Esta política explica de manera clara cómo manejamos su información personal.
           </p>
 
-          <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">2. Información que recopilamos</h2>
-          <p className="mb-4">
-            Podemos recopilar información personal que usted nos proporciona voluntariamente, como su nombre y dirección de correo electrónico al suscribirse a nuestro boletín o al utilizar nuestros formularios de contacto. También recopilamos información automática a través de cookies para mejorar su experiencia de navegación y analizar el tráfico del sitio.
+          <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginTop: '2rem', marginBottom: '1rem' }}>1. Recopilación de Datos</h3>
+          <p className="muted" style={{ marginBottom: '1rem' }}>
+            Recopilamos información que usted nos proporciona directamente (por ejemplo, al usar el formulario de contacto) y datos automáticos de navegación mediante cookies para mejorar la funcionalidad del sitio.
           </p>
 
-          <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">3. Uso de la información</h2>
-          <p className="mb-4">
-            Utilizamos la información que recopilamos para:
-          </p>
-          <ul className="list-disc pl-5 mb-4 space-y-2">
-            <li>Presentar nuestro sitio web y su contenido de manera efectiva.</li>
-            <li>Proporcionarle información, productos o servicios que nos solicite.</li>
-            <li>Notificarle sobre cambios en nuestro sitio web o nuevos artículos.</li>
-            <li>Mejorar nuestros servicios y la experiencia del usuario.</li>
-          </ul>
-
-          <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">4. Enlaces de Afiliados y Terceros</h2>
-          <p className="mb-4">
-            Nuestro sitio web puede contener enlaces a sitios web de terceros y enlaces de afiliados (como Hotmart). Si hace clic en un enlace de un tercero, será dirigido al sitio de ese tercero. Tenga en cuenta que si realiza una compra a través de nuestros enlaces de afiliados, podemos recibir una comisión sin costo adicional para usted. Le recomendamos encarecidamente que revise la Política de Privacidad de cada sitio que visite.
+          <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginTop: '2rem', marginBottom: '1rem' }}>2. Uso de la Información</h3>
+          <p className="muted" style={{ marginBottom: '1rem' }}>
+            Utilizamos sus datos exclusivamente para responder a sus consultas, mejorar nuestro contenido y, si se suscribe, enviarle novedades financieras. No vendemos ni compartimos su información con terceros.
           </p>
 
-          <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">5. Seguridad de los datos</h2>
-          <p className="mb-4">
-            Nos esforzamos por utilizar medios comercialmente aceptables para proteger su información personal, pero recuerde que ningún método de transmisión a través de Internet o método de almacenamiento electrónico es 100% seguro.
+          <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginTop: '2rem', marginBottom: '1rem' }}>3. Enlaces y Afiliados</h3>
+          <p className="muted" style={{ marginBottom: '1rem' }}>
+            Este sitio puede contener enlaces de afiliados (como Hotmart). Si realiza una compra a través de ellos, podemos recibir una comisión sin costo extra para usted. No nos hacemos responsables de las políticas de privacidad de sitios externos.
           </p>
 
-          <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">6. Contacto</h2>
-          <p className="mb-4">
-            Si tiene alguna pregunta sobre esta política de privacidad, puede contactarnos a través de nuestra página de contacto.
+          <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginTop: '2rem', marginBottom: '1rem' }}>4. Contacto</h3>
+          <p className="muted">
+            Si tiene dudas sobre esta política, puede escribirnos a través de nuestra sección de contacto.
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /*
   Hoja de estilos — Web de Finanzas Profesional
   Diseño limpio, accesible y listo para producción.
@@ -7,6 +9,14 @@
    Variables y theming
 ===================== */
 :root {
+  /* Variables requeridas por ModernAnimatedSignIn */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --skeleton: #e5e7eb;
+  --btn-border: #e2e8f0;
+  --input: #f1f5f9;
+  --radius: 0.5rem;
+
   /* Paleta principal */
   --brand-50:  #f2f6ff;
   --brand-100: #e6eeff;
@@ -48,6 +58,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --background: 222 94% 5%;
+    --foreground: 0 0% 100%;
+    --skeleton: #1e293b;
+    --btn-border: #1e293b;
+    --input: #1e293b;
+
     --bg: #0f172a;
     --bg-elev: #111827;
     --text: #e5e7eb;
@@ -229,4 +245,33 @@ button { border: 0; background: none; cursor: pointer; }
 .footer {
   margin-top: 2rem; padding: 2.5rem 1rem; background: var(--bg-elev);
   border-top: 1px solid var(--border); color: var(--muted); text-align: center;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Clases de utilidad para el componente */
+.g-button {
+  border-radius: var(--radius);
+  border: 1px solid var(--btn-border);
+}
+
+/* Fondo espacial con estrellas */
+.bg-space {
+  background-color: #050505;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
 }

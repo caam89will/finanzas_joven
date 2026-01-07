@@ -25,6 +25,8 @@ import Training from './pages/Training';
 import ErroresInversion from './pages/ErroresInversion';
 import Metodo503020 from './pages/Metodo503020';
 import IngresosPasivos from './pages/IngresosPasivos';
+import SalesFunnel from './components/SalesFunnel';
+import Captura from './pages/Captura';
 
 function App() {
   // Estado para el año actual en el footer
@@ -138,6 +140,8 @@ function App() {
             <Route path="/blog/metodo-50-30-20" element={<Metodo503020 />} />
             <Route path="/training" element={<Training />} />
             <Route path="/blog/ingresos-pasivos-casa" element={<IngresosPasivos />} />
+            <Route path="/oferta-especial" element={<SalesFunnel onBack={() => window.history.back()} />} />
+            <Route path="/captura" element={<Captura />} />
             
             {/* Rutas Placeholder para enlaces del footer (Evita errores 404) */}
             <Route path="/glosario" element={<div className="container" style={{padding: '4rem 0', textAlign: 'center'}}><h2>Glosario Financiero</h2><p className="muted">Próximamente disponible.</p><Link to="/" className="btn btn--primary" style={{marginTop: '1rem', display: 'inline-block'}}>Volver al inicio</Link></div>} />

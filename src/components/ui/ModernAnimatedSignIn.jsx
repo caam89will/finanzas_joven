@@ -155,7 +155,7 @@ const Ripple = memo(function Ripple({
 }) {
   return (
     <section
-      className={`max-w-[50%] absolute inset-0 flex items-center justify-center
+      className={`absolute inset-0 flex items-center justify-center
         dark:bg-white/5 bg-neutral-50
         [mask-image:linear-gradient(to_bottom,black,transparent)]
         dark:[mask-image:linear-gradient(to_bottom,white,transparent)] ${className}`}
@@ -403,8 +403,8 @@ const AnimatedForm = memo(function AnimatedForm({
           overflow='visible'
         >
           <button
-            className='bg-gradient-to-br relative group/btn from-blue-600 to-indigo-600 block w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] 
-              dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] outline-hidden hover:cursor-pointer hover:from-blue-500 hover:to-indigo-500 transition-all'
+            className='bg-black dark:bg-zinc-800 block w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] 
+              dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] outline-none hover:cursor-pointer hover:bg-neutral-800 transition-all relative group/btn'
             type='submit'
           >
             {submitButton} &rarr;

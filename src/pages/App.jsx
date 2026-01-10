@@ -4,6 +4,7 @@
  * Enfocada en herramientas para crear negocios digitales (IA, No-Code, Diseño).
  */
 import React from "react";
+import IntegrationHero from "../components/ui/IntegrationHero";
 
 const Apps = () => {
   return (
@@ -33,47 +34,8 @@ const Apps = () => {
         </div>
       </section>
 
-      <div className="grid cols-2" style={{ gap: '2rem' }}>
-        {/* App 1 */}
-        <div className="card">
-          <div className="card-head">
-            <h3 className="card-title">ChatGPT / Claude</h3>
-            <span className="badge badge--neutral">IA para Copywriting</span>
-          </div>
-          <p className="muted" style={{ marginBottom: '1rem' }}>Tu asistente personal gratuito. Úsalo para redactar correos de venta, guiones de video, ideas de contenido y planes de negocio completos.</p>
-          <a href="https://chat.openai.com" target="_blank" rel="noreferrer" className="btn btn--secondary" style={{ width: '100%', justifyContent: 'center' }}>Probar Gratis</a>
-        </div>
-
-        {/* App 2 */}
-        <div className="card">
-          <div className="card-head">
-            <h3 className="card-title">Canva</h3>
-            <span className="badge badge--neutral">Diseño Gráfico</span>
-          </div>
-          <p className="muted" style={{ marginBottom: '1rem' }}>Diseña logos, posts para redes sociales, presentaciones y ebooks sin ser diseñador. Su versión gratuita es extremadamente potente.</p>
-          <a href="https://www.canva.com" target="_blank" rel="noreferrer" className="btn btn--secondary" style={{ width: '100%', justifyContent: 'center' }}>Probar Gratis</a>
-        </div>
-
-        {/* App 3 */}
-        <div className="card">
-          <div className="card-head">
-            <h3 className="card-title">Notion</h3>
-            <span className="badge badge--neutral">Organización</span>
-          </div>
-          <p className="muted" style={{ marginBottom: '1rem' }}>El cerebro de tu negocio. Gestiona tareas, bases de datos de clientes, calendarios de contenido y documentación en un solo lugar.</p>
-          <a href="https://www.notion.so" target="_blank" rel="noreferrer" className="btn btn--secondary" style={{ width: '100%', justifyContent: 'center' }}>Probar Gratis</a>
-        </div>
-
-        {/* App 4 */}
-        <div className="card">
-          <div className="card-head">
-            <h3 className="card-title">CapCut</h3>
-            <span className="badge badge--neutral">Edición de Video</span>
-          </div>
-          <p className="muted" style={{ marginBottom: '1rem' }}>La mejor app para editar videos verticales (Reels/TikTok). Añade subtítulos automáticos y efectos virales desde tu móvil.</p>
-          <a href="https://www.capcut.com" target="_blank" rel="noreferrer" className="btn btn--secondary" style={{ width: '100%', justifyContent: 'center' }}>Probar Gratis</a>
-        </div>
-      </div>
+      {/* Nueva sección con 40 herramientas animadas */}
+      <IntegrationHero />
     </div>
   );
 };

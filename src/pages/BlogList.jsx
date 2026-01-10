@@ -1,38 +1,45 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import blogPosts from '../data/blogPosts.json';
+import GradientCardShowcase from '../components/ui/GradientCardShowcase';
+
+// Función auxiliar para mapear tus colores de etiquetas a gradientes atractivos
+const getGradients = (color) => {
+  const gradients = {
+    blue: { from: '#03a9f4', to: '#00d0ff' },     // Cyan a Azul claro
+    green: { from: '#4dff03', to: '#00d0ff' },    // Lima a Cyan
+    yellow: { from: '#ffbc00', to: '#ff0058' },   // Amarillo a Rosa
+    default: { from: '#8e2de2', to: '#4a00e0' }   // Morado (fallback)
+  };
+  return gradients[color] || gradients.default;
+};
 
 const BlogList = () => {
+  // Preparamos los datos añadiendo los gradientes necesarios para el nuevo componente
+  const formattedPosts = blogPosts.map(post => {
+    const colors = getGradients(post.tagColor);
+    return {
+      ...post,
+      gradientFrom: colors.from,
+      gradientTo: colors.to
+    };
+  });
+
   return (
-    <div className="container">
-      <div className="section-head mb-4">
-        <div>
-          <h2>Blog Financiero</h2>
-          <p className="sub">Consejos prácticos para mejorar tu economía.</p>
+    <section className="py-12 bg-gray-50 min-h-screen">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+            Blog Financiero
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Estrategias probadas, guías paso a paso y consejos prácticos para dominar tu economía.
+          </p>
         </div>
+        
+        {/* Nuevo componente de tarjetas animadas */}
+        <GradientCardShowcase items={formattedPosts} />
       </div>
-      
-      <div className="grid cols-3">
-        {blogPosts.map(post => (
-          <div key={post.id} className="card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-            <img src={post.image} alt={post.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-            <div className="p-4" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ marginBottom: '0.5rem' }}>
-                <span className={`badge badge--${post.tagColor === 'blue' ? 'neutral' : 'buy'}`} style={{ fontSize: '0.7rem' }}>
-                  {post.tag}
-                </span>
-                <span className="muted" style={{ fontSize: '0.8rem', marginLeft: '0.5rem' }}>{post.date}</span>
-              </div>
-              <h3 className="card-title" style={{ marginBottom: '0.5rem', fontSize: '1.1rem' }}>{post.title}</h3>
-              <p className="muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', flex: 1 }}>{post.excerpt}</p>
-              <Link to={post.link} className="btn btn--secondary" style={{ justifyContent: 'center' }}>
-                Leer Artículo
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
 

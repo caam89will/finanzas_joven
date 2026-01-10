@@ -256,7 +256,7 @@ export default function OrbitingSkills() {
   ];
 
   return (
-    <main className="w-full flex items-center justify-center overflow-hidden">
+    <main className="w-full h-full flex items-center justify-center overflow-hidden relative">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div 
@@ -269,7 +269,7 @@ export default function OrbitingSkills() {
       </div>
 
       <div 
-        className="relative w-[calc(100vw-40px)] h-[calc(100vw-40px)] md:w-[450px] md:h-[450px] flex items-center justify-center"
+        className="relative w-full h-full max-w-[450px] max-h-[450px] flex items-center justify-center"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >

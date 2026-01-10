@@ -135,13 +135,23 @@ const Contacto = () => {
   return (
     <section className='flex max-lg:justify-center h-screen overflow-hidden rounded-xl shadow-2xl border border-gray-200 bg-white'>
       {/* Left Side */}
-      <span className='flex flex-col justify-center w-1/2 max-lg:hidden relative'>
-        <Ripple mainCircleSize={150} numCircles={8} />
-        <OrbitingSkills />
+      <span className='flex flex-col justify-center items-center w-1/2 max-lg:hidden relative bg-gray-50 overflow-hidden'>
+        {/* Contenedor unificado para asegurar que Ripple y OrbitingSkills compartan el mismo centro exacto */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Ripple mainCircleSize={150} numCircles={8} />
+          <OrbitingSkills icons={iconsArray} />
+        </div>
       </span>
 
       {/* Right Side */}
       <span className='w-1/2 h-full flex flex-col justify-center items-center max-lg:w-full max-lg:px-[10%]'>
+        {/* Inyección de estilos CSS para forzar el color del botón, ya que AuthTabs no acepta la clase directamente */}
+        <style>{`
+          button[type="submit"] {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+          }
+        `}</style>
         <AuthTabs
           formFields={formFields}
           handleSubmit={handleSubmit}

@@ -5,50 +5,50 @@ import React from "react";
 
 // Fila 1: IA, Diseño y No-Code (20 herramientas)
 const ICONS_ROW1 = [
-  "https://cdn.simpleicons.org/openai/000000", // OpenAI
-  "https://cdn.simpleicons.org/canva/00C4CC", // Canva
-  "https://cdn.simpleicons.org/notion/000000", // Notion
-  "https://cdn.simpleicons.org/shopify/96BF48", // Shopify
-  "https://cdn.simpleicons.org/wordpress/21759B", // WordPress
-  "https://cdn.simpleicons.org/webflow/146EF2", // Webflow
-  "https://cdn.simpleicons.org/zapier/FF4F00", // Zapier
-  "https://cdn.simpleicons.org/make/000000", // Make
-  "https://cdn.simpleicons.org/mailchimp/FFE01B", // Mailchimp
-  "https://cdn.simpleicons.org/hubspot/FF7A59", // HubSpot
-  "https://cdn.simpleicons.org/buffer/231F20", // Buffer
-  "https://cdn.simpleicons.org/slack/4A154B", // Slack
-  "https://cdn.simpleicons.org/discord/5865F2", // Discord
-  "https://cdn.simpleicons.org/zoom/2D8CFF", // Zoom
-  "https://cdn.simpleicons.org/google/4285F4", // Google
-  "https://cdn.simpleicons.org/stripe/008CDD", // Stripe
-  "https://cdn.simpleicons.org/paypal/003087", // PayPal
-  "https://cdn.simpleicons.org/gumroad/FF90E8", // Gumroad
-  "https://cdn.simpleicons.org/loom/625DF5", // Loom
-  "https://cdn.simpleicons.org/figma/F24E1E", // Figma
+  { name: "OpenAI", src: "https://cdn.simpleicons.org/openai/000000/ffffff", href: "https://openai.com" },
+  { name: "Canva", src: "https://cdn.simpleicons.org/canva/00C4CC", href: "https://www.canva.com" },
+  { name: "Notion", src: "https://cdn.simpleicons.org/notion/000000/ffffff", href: "https://www.notion.so" },
+  { name: "Shopify", src: "https://cdn.simpleicons.org/shopify/96BF48", href: "https://www.shopify.com" },
+  { name: "WordPress", src: "https://cdn.simpleicons.org/wordpress/21759B", href: "https://wordpress.org" },
+  { name: "Webflow", src: "https://cdn.simpleicons.org/webflow/146EF2", href: "https://webflow.com" },
+  { name: "Zapier", src: "https://cdn.simpleicons.org/zapier/FF4F00", href: "https://zapier.com" },
+  { name: "Make", src: "https://cdn.simpleicons.org/make/000000/ffffff", href: "https://www.make.com" },
+  { name: "Mailchimp", src: "https://cdn.simpleicons.org/mailchimp/FFE01B", href: "https://mailchimp.com" },
+  { name: "HubSpot", src: "https://cdn.simpleicons.org/hubspot/FF7A59", href: "https://www.hubspot.com" },
+  { name: "Buffer", src: "https://cdn.simpleicons.org/buffer/231F20/ffffff", href: "https://buffer.com" },
+  { name: "Slack", src: "https://cdn.simpleicons.org/slack/4A154B", href: "https://slack.com" },
+  { name: "Discord", src: "https://cdn.simpleicons.org/discord/5865F2", href: "https://discord.com" },
+  { name: "Zoom", src: "https://cdn.simpleicons.org/zoom/2D8CFF", href: "https://zoom.us" },
+  { name: "Google", src: "https://cdn.simpleicons.org/google/4285F4", href: "https://google.com" },
+  { name: "Stripe", src: "https://cdn.simpleicons.org/stripe/008CDD", href: "https://stripe.com" },
+  { name: "PayPal", src: "https://cdn.simpleicons.org/paypal/003087", href: "https://www.paypal.com" },
+  { name: "Gumroad", src: "https://cdn.simpleicons.org/gumroad/FF90E8", href: "https://gumroad.com" },
+  { name: "Loom", src: "https://cdn.simpleicons.org/loom/625DF5", href: "https://www.loom.com" },
+  { name: "Figma", src: "https://cdn.simpleicons.org/figma/F24E1E", href: "https://www.figma.com" },
 ];
 
 // Fila 2: Marketing, Productividad y Redes (20 herramientas)
 const ICONS_ROW2 = [
-  "https://cdn.simpleicons.org/adobe/FF0000", // Adobe
-  "https://cdn.simpleicons.org/grammarly/15C39A", // Grammarly
-  "https://cdn.simpleicons.org/framer/0055FF", // Framer
-  "https://cdn.simpleicons.org/bubble/000000", // Bubble
-  "https://cdn.simpleicons.org/convertkit/FF725E", // ConvertKit
-  "https://cdn.simpleicons.org/hootsuite/000000", // Hootsuite
-  "https://cdn.simpleicons.org/asana/273347", // Asana
-  "https://cdn.simpleicons.org/trello/0052CC", // Trello
-  "https://cdn.simpleicons.org/mondaydotcom/FF3D57", // Monday
-  "https://cdn.simpleicons.org/clickup/7B68EE", // ClickUp
-  "https://cdn.simpleicons.org/airtable/18BFFF", // Airtable
-  "https://cdn.simpleicons.org/typeform/262627", // Typeform
-  "https://cdn.simpleicons.org/tiktok/000000", // TikTok
-  "https://cdn.simpleicons.org/instagram/E4405F", // Instagram
-  "https://cdn.simpleicons.org/youtube/FF0000", // YouTube
-  "https://cdn.simpleicons.org/linkedin/0A66C2", // LinkedIn
-  "https://cdn.simpleicons.org/pinterest/BD081C", // Pinterest
-  "https://cdn.simpleicons.org/whatsapp/25D366", // WhatsApp
-  "https://cdn.simpleicons.org/capcut/000000", // CapCut
-  "https://cdn.simpleicons.org/substack/FF6719", // Substack
+  { name: "Adobe", src: "https://cdn.simpleicons.org/adobe/FF0000", href: "https://www.adobe.com" },
+  { name: "Grammarly", src: "https://cdn.simpleicons.org/grammarly/15C39A", href: "https://www.grammarly.com" },
+  { name: "Framer", src: "https://cdn.simpleicons.org/framer/0055FF", href: "https://www.framer.com" },
+  { name: "Bubble", src: "https://cdn.simpleicons.org/bubble/000000/ffffff", href: "https://bubble.io" },
+  { name: "ConvertKit", src: "https://cdn.simpleicons.org/convertkit/FF725E", href: "https://convertkit.com" },
+  { name: "Hootsuite", src: "https://cdn.simpleicons.org/hootsuite/000000/ffffff", href: "https://www.hootsuite.com" },
+  { name: "Asana", src: "https://cdn.simpleicons.org/asana/273347/ffffff", href: "https://asana.com" },
+  { name: "Trello", src: "https://cdn.simpleicons.org/trello/0052CC", href: "https://trello.com" },
+  { name: "Monday", src: "https://cdn.simpleicons.org/monday/FF3D57", href: "https://monday.com" },
+  { name: "ClickUp", src: "https://cdn.simpleicons.org/clickup/7B68EE", href: "https://clickup.com" },
+  { name: "Airtable", src: "https://cdn.simpleicons.org/airtable/18BFFF", href: "https://airtable.com" },
+  { name: "Typeform", src: "https://cdn.simpleicons.org/typeform/262627/ffffff", href: "https://www.typeform.com" },
+  { name: "TikTok", src: "https://cdn.simpleicons.org/tiktok/000000/ffffff", href: "https://www.tiktok.com" },
+  { name: "Instagram", src: "https://cdn.simpleicons.org/instagram/E4405F", href: "https://www.instagram.com" },
+  { name: "YouTube", src: "https://cdn.simpleicons.org/youtube/FF0000", href: "https://www.youtube.com/watch?v=okke7Bki548&autoplay=1" },
+  { name: "LinkedIn", src: "https://cdn.simpleicons.org/linkedin/0A66C2", href: "https://www.linkedin.com" },
+  { name: "Pinterest", src: "https://cdn.simpleicons.org/pinterest/BD081C", href: "https://www.pinterest.com" },
+  { name: "WhatsApp", src: "https://cdn.simpleicons.org/whatsapp/25D366", href: "https://www.whatsapp.com" },
+  { name: "CapCut", src: "https://cdn.simpleicons.org/capcut/000000/ffffff", href: "https://www.capcut.com" },
+  { name: "Substack", src: "https://cdn.simpleicons.org/substack/FF6719", href: "https://substack.com" },
 ];
 
 // Utility to repeat icons enough times for smooth infinite scroll
@@ -83,19 +83,31 @@ export default function IntegrationHero() {
         <div className="mt-16 overflow-hidden relative pb-2">
           {/* Row 1 */}
           <div className="flex gap-8 whitespace-nowrap animate-scroll-left hover:[animation-play-state:paused]">
-            {repeatedIcons(ICONS_ROW1, 4).map((src, i) => (
-              <div key={i} className="h-20 w-20 flex-shrink-0 rounded-2xl bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-4">
-                <img src={src} alt="icon" className="h-full w-full object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
-              </div>
+            {repeatedIcons(ICONS_ROW1, 4).map((item, i) => (
+              <a 
+                key={i} 
+                href={item.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="h-20 w-20 flex-shrink-0 rounded-2xl bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-4 cursor-pointer"
+              >
+                <img src={item.src} alt={item.name} className="h-full w-full object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+              </a>
             ))}
           </div>
 
           {/* Row 2 */}
           <div className="flex gap-8 whitespace-nowrap mt-8 animate-scroll-right hover:[animation-play-state:paused]">
-            {repeatedIcons(ICONS_ROW2, 4).map((src, i) => (
-              <div key={i} className="h-20 w-20 flex-shrink-0 rounded-2xl bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-4">
-                <img src={src} alt="icon" className="h-full w-full object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
-              </div>
+            {repeatedIcons(ICONS_ROW2, 4).map((item, i) => (
+              <a 
+                key={i} 
+                href={item.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="h-20 w-20 flex-shrink-0 rounded-2xl bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-4 cursor-pointer"
+              >
+                <img src={item.src} alt={item.name} className="h-full w-full object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+              </a>
             ))}
           </div>
 

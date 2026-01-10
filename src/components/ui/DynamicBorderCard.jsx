@@ -76,7 +76,7 @@ const DynamicBorderCard = ({ title, description, icon, linkText, linkTo, gradien
           {title}
         </h3>
         
-        <p className="text-gray-400 mb-6 flex-grow">
+        <p className="text-white mb-6 flex-grow">
           {description}
         </p>
         

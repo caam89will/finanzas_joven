@@ -20,7 +20,7 @@ const Apps = () => {
            <iframe 
               width="100%" 
               height="450" 
-              src="https://www.youtube.com/watch?v=okke7Bki548&autoplay=1" 
+              src="https://www.youtube.com/embed/okke7Bki548?autoplay=1" 
               title="Herramientas de IA para negocios" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

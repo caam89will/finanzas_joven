@@ -49,17 +49,17 @@ const SalesFunnel = ({ onBack }) => {
 
       {/* 2. BENEFICIOS */}
       <section className="features-section" style={{ padding: "4rem 1rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem", maxWidth: "1000px", margin: "0 auto" }}>
-        <div className="product-card">
-          <h3>🧠 Mentalidad Financiera</h3>
-          <p>Reprograma tu mente para dejar de gastar compulsivamente.</p>
+        <div className="product-card" style={{ backgroundColor: "#1e293b", padding: "2rem", borderRadius: "1rem" }}>
+          <h3 style={{ color: "white" }}>🧠 Mentalidad Financiera</h3>
+          <p style={{ color: "#cbd5e1" }}>Reprograma tu mente para dejar de gastar compulsivamente.</p>
         </div>
-        <div className="product-card">
-          <h3>📉 Adiós Deudas</h3>
-          <p>La estrategia "Bola de Nieve" para eliminar pasivos rápidamente.</p>
+        <div className="product-card" style={{ backgroundColor: "#1e293b", padding: "2rem", borderRadius: "1rem" }}>
+          <h3 style={{ color: "white" }}>📉 Adiós Deudas</h3>
+          <p style={{ color: "#cbd5e1" }}>La estrategia "Bola de Nieve" para eliminar pasivos rápidamente.</p>
         </div>
-        <div className="product-card">
-          <h3>🚀 Inversión Joven</h3>
-          <p>Cómo empezar en bolsa o cripto con poco capital.</p>
+        <div className="product-card" style={{ backgroundColor: "#1e293b", padding: "2rem", borderRadius: "1rem" }}>
+          <h3 style={{ color: "white" }}>🚀 Inversión Joven</h3>
+          <p style={{ color: "#cbd5e1" }}>Cómo empezar en bolsa o cripto con poco capital.</p>
         </div>
       </section>
 
